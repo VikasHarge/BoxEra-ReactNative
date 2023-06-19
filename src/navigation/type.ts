@@ -5,15 +5,16 @@ import {
   NavigatorScreenParams,
 } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
+import { Estimate } from '../store/types';
 
 
 export type HomeStackParamsList = {
     SelectClient : undefined,
     BoxDetailsInput : {client_name : string},
     PaperDetailsInput : undefined,
-    ColorDetailsInput : undefined,
+    BoxEdit : {box : Estimate},
     CostDetailsInput : undefined,
-    FinalDetails : undefined,
+    FinalDetails : {box : Estimate},
     Home : undefined,
 }
 

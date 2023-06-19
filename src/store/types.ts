@@ -18,7 +18,7 @@ export type Estimate = {
     bottom_gsm? : string,
     bottom_paper_rate?:string,
     color_type? : ColorType,
-    lamination_type?: "yes" | "no",
+    is_lamination?: boolean,
     box_quantity?: string,
     transportation_charge?: string,
     profit?: string,
@@ -26,6 +26,8 @@ export type Estimate = {
     tax?: string,
     price_per_box? : string,
     cost_per_box?: string,
+    conversion_cost?: string,
+    lamination_factor?: string,
 }
 
 export type ClientObject = {
@@ -38,4 +40,16 @@ export type ClientObject = {
 export type AddBoxToCllientPaylod =  {
     client_name : string,
     estimate: Estimate
+}
+
+export type DeleteBoxPayload = {
+    client_name : string,
+    box_name : string
+}
+
+export type EditBoxPayload = {
+    client_name : string,
+    edited_box : Estimate,
+    box_name : string,
+
 }

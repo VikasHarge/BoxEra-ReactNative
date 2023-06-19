@@ -16,7 +16,7 @@ export const estimateInitial: Estimate = {
     top_bf: undefined,
     top_gsm: undefined,
     color_type: undefined,
-    lamination_type: undefined,
+    is_lamination: undefined,
     box_quantity: undefined,
     profit: undefined,
     tax:undefined,
@@ -25,11 +25,13 @@ export const estimateInitial: Estimate = {
     cost_per_box : undefined,
     bottom_paper_rate : undefined,
     top_paper_rate : undefined,
-    mid_paper_rate : undefined
+    mid_paper_rate : undefined,
+    conversion_cost : undefined,
+    lamination_factor : undefined,
 }
 
 
-export const estimateSchema = Yup.object({
+export const estimateSchema = Yup.object().shape({
     client_name: Yup.string().required("required"),
     box_name: Yup.string().required("required"),
     outer_height: Yup.string().required("required"),
@@ -44,7 +46,7 @@ export const estimateSchema = Yup.object({
     top_bf: Yup.string().required("required"),
     top_gsm: Yup.string().required("required"),
     color_type: Yup.string().required("required"),
-    lamination_type: Yup.string().required("required"),
+    is_lamination: Yup.boolean().required("required"),
     box_quantity: Yup.string().required("required"),
     profit: Yup.string().required("required"),
     tax:Yup.string().required("required"),
@@ -52,11 +54,15 @@ export const estimateSchema = Yup.object({
     wastage:Yup.string().required("required"),
     bottom_paper_rate : Yup.string().required("required"),
     top_paper_rate : Yup.string().required("required"),
-    mid_paper_rate : Yup.string().required("required")
+    mid_paper_rate : Yup.string().required("required"),
+    conversion_cost : Yup.string().required("required"),
+    lamination_factor: Yup.string().when("lamination_type", ([lamination_type], schema)=>{
+        return lamination_type === true ? schema.required("Required") : schema.optional()
+    })
 
 })
 
-export const laminationOptions : {label : string, value : "yes" | "no"}[] = [ {label : "No", value : 'no'}, {label : 'Yes', value : "yes"},]
+export const laminationOptions : {label : string, value : boolean}[] = [ {label : "No", value : false}, {label : 'Yes', value : true},]
 
 export const colorOptions : {label : string, value : ColorType}[] = [{label : "No Color", value : "no_color"}, {label : "Single Color", value : "single_color"}, {label : "Two Colors", value : 'two_color'}, {label : "Four Colors", value : 'four_color'} ]
 

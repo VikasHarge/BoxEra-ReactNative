@@ -20,7 +20,6 @@ export default function ModalBox({ isVisible, children, onClose }: Props) {
       transparent={true}
       visible={isVisible}
       onRequestClose={() => onClose()}
-
     >
       <TouchableOpacity style={styles.modalContent} onPress={() => onClose()}>
         <TouchableWithoutFeedback>

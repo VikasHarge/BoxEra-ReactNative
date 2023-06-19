@@ -8,6 +8,7 @@ import { HomeStackParamsList } from '../../../type'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { useAppSelector } from '../../../../store'
 import { useAllBoxeSelector } from '../../../../store/selectors'
+import { getBoxPrice } from '../../../../utils/Calculations'
 
 const Home = ({ navigation }: NativeStackScreenProps<HomeStackParamsList, keyof HomeStackParamsList>) => {
 ;
@@ -36,7 +37,7 @@ const Home = ({ navigation }: NativeStackScreenProps<HomeStackParamsList, keyof 
                 boxsesArr.map((box)=><Pressable
                 key={box.box_name}
                 onPress={
-                  () => navigation.navigate('PaperDetailsInput')
+                  () => navigation.navigate('FinalDetails', {box : box})
                 } >
                 <View style={[styles.card, styles.elevation, styles.shadowProp]} >
                   <View style={{flex : 1, flexDirection : 'row', gap : 20,  }} >
@@ -51,8 +52,8 @@ const Home = ({ navigation }: NativeStackScreenProps<HomeStackParamsList, keyof 
                     </View>
                   </View>
                   <View >
-                    <Text style={{fontSize : 16}} >20 Rs/box</Text>
-                    <Text style={{ fontSize: 18, color: 'grey' }} >{`${box.outer_length}X${box.outer_width}X${box.outer_height}`}</Text>
+                    <Text style={{fontSize : 18, fontWeight : "bold"}} >{`${getBoxPrice(box)} ₹`}</Text>
+                    <Text style={{ fontSize: 16, color: 'grey' }} >{`${box.outer_length}X${box.outer_width}X${box.outer_height}`}</Text>
                   </View>
                 </View>
               </Pressable>)

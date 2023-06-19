@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View , ActivityIndicator} from 'react-native';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -22,6 +22,7 @@ export default function App() {
   return isLoadingComplete && store ? (
     <Provider store={store} >
       <NavigationContainer fallback={<Text>Loading...</Text>} >
+        <ActivityIndicator  />
         <BottomTabsNavigator />
       </NavigationContainer>
     </Provider>

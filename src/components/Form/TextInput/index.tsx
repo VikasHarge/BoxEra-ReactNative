@@ -41,7 +41,7 @@ const FormikTextInput: React.FC<FormikTextInputProps> = ({ label, name, type }) 
     });
 
     return (
-        <View style={{marginBottom : 5, marginTop : 20, flex:1}} >
+        <View style={{marginBottom : 5, marginTop : 20, width : "100%"}} >
             <Animated.Text
                 style={{
                     position: 'absolute',
@@ -60,6 +60,7 @@ const FormikTextInput: React.FC<FormikTextInputProps> = ({ label, name, type }) 
                     borderBottomColor: errors[name] && touched[name] ? 'red' : '#0051ad6c',
                     padding: 5,
                     marginBottom: 5,
+                    
                 }}
                 
                 value={values[name]}

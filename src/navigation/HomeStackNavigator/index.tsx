@@ -3,10 +3,10 @@ import { HomeStackParamsList } from "../type";
 import Home from "../Screens/HomeTab/Home";
 import BoxDetailsInput from "../Screens/HomeTab/BoxDetailsInput";
 import CostDetailsInput from "../Screens/HomeTab/CostDetailsInput";
-import ColorDetailsInput from "../Screens/HomeTab/ColorDetailsInput";
 import FinalDetails from "../Screens/HomeTab/FinalDetails";
 import PaperDetailsInput from "../Screens/HomeTab/PaperDetailsInput";
 import SelectClient from "../Screens/HomeTab/SelectClient";
+import BoxEdit from "../Screens/HomeTab/BoxEdit";
 
 
 
@@ -37,10 +37,16 @@ const HomeStackNavigator = ()=>{
             
             }}
              name="Home" component={Home} />
-            <Stack.Screen name="BoxDetailsInput" component={BoxDetailsInput} />
+            <Stack.Screen name="BoxDetailsInput" options={{
+                title : "Box Estimation"
+            }} component={BoxDetailsInput} />
             <Stack.Screen name="CostDetailsInput" component={CostDetailsInput} />
-            <Stack.Screen name="ColorDetailsInput" component={ColorDetailsInput} />
-            <Stack.Screen name="FinalDetails" component={FinalDetails} />
+            <Stack.Screen name="BoxEdit" options={{
+                title : "Edit Estimation"
+            }} component={BoxEdit} />
+            <Stack.Screen name="FinalDetails" options={{
+                title : "Box Details"
+            }} component={FinalDetails} />
             <Stack.Screen name="PaperDetailsInput" component={PaperDetailsInput} />
             <Stack.Screen options={{
                 headerTitle : "Select Client"

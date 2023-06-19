@@ -11,3 +11,10 @@ useAppSelector((state)=>{
     })
     return newArr
 })
+
+export const useSelectClientByName = (client_name : string)=>
+useAppSelector((state)=>{
+  return  state.clients.clients.filter((client)=>{
+        return client.client_name === client_name
+    })[0]
+})

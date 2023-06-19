@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker'
 
 export type Option = {
     label : string,
-    value : string | number,
+    value : string | number | boolean,
 }
 
 type FormikSelectProps = {
@@ -25,7 +25,7 @@ const FormikSelect = ({name, options}:FormikSelectProps) => {
     >
         {
             options && options.map((option)=>(
-                <Picker.Item key={option.value} label={option.label} value={option.value}  />
+                <Picker.Item key={option.label} label={option.label} value={option.value}  />
             ))
         }
      
