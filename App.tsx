@@ -22,7 +22,6 @@ export default function App() {
   return isLoadingComplete && store ? (
     <Provider store={store} >
       <NavigationContainer fallback={<Text>Loading...</Text>} >
-        <ActivityIndicator  />
         <BottomTabsNavigator />
       </NavigationContainer>
     </Provider>

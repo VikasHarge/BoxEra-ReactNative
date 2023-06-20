@@ -172,18 +172,17 @@ const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) 
                     <View style={{ flex: 1, marginBottom: 35 }} >
                         <Text style={[styles.inputHead, { marginBottom: 8, }]} >Charges</Text>
                         <View style={{ flex: 1, flexDirection: 'row', gap: 25 }} >
-                            <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
-                                <FormikTextInput name='transportation_charge' label='Transportation + Other ( ₹ )/box' type='phone' />
+                        <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
+                                <FormikTextInput name='conversion_cost' label='Coversion Cost / Kg' type='phone' />
                             </View>
                             <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
                                 <FormikTextInput name='profit' label='Profit ( % )' type='phone' />
                             </View>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'row', gap: 25 }} >
-                            <View style={{ flex: 0.5, marginBottom: 5, flexDirection: "row" }} >
-                                <FormikTextInput name='conversion_cost' label='Coversion Cost / Kg' type='phone' />
-                            </View>
-                            <View style={{ flex: 0.5, marginBottom: 5, flexDirection: "row" }} >
+
+                            <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
+                                <FormikTextInput name='transportation_charge' label='Transportation + Other ( ₹ )/box' type='phone' />
                             </View>
                         </View>
                     </View>

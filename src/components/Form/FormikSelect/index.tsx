@@ -17,18 +17,18 @@ type FormikSelectProps = {
 const FormikSelect = ({name, options}:FormikSelectProps) => {
     const { values, setFieldValue, errors, touched, handleChange } = useFormikContext<any>();
   return (
-<View style={{flex : 1, backgroundColor : '#ffffffb5', borderRadius : 8}} >
+<View style={{flex : 1, }} >
 <Picker 
     selectedValue={values[name]}
+    placeholder='Select'
     onValueChange={(selected)=> setFieldValue(name , selected)}
-    
+    style={{backgroundColor : '#ffffffb5', borderRadius : 8}}
     >
         {
             options && options.map((option)=>(
                 <Picker.Item key={option.label} label={option.label} value={option.value}  />
             ))
         }
-     
     </Picker>
     {errors[name] && touched[name] && <Text style={{color : 'red'}} >{errors[name]}</Text>}
 </View>

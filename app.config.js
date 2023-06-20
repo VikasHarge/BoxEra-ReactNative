@@ -9,33 +9,34 @@ export default {
   version: '1.0.0',
   extra: {
     // pageBaseUrl: process.env.ACUBALL_BASE_URL,
-    // eas: {
-    //   projectId: process.env.EAS_PROJECT_ID,
-    // },
+    eas: {
+      projectId: "4664018b-88df-40f6-a63b-b8dc3204bc6d",
+    },
   },
   plugins: [
   ],
   scheme: 'boxcalculator',
   orientation: 'default',
-//   icon: './src/assets/icon/icon.png',
+  icon: './assets/icon.png',
   userInterfaceStyle: 'light',
-//   splash: {
-//     image: './src/assets/images/splash.png',
-//     resizeMode: 'cover',
-//     backgroundColor: '#ffffff',
-//   },
+  splash: {
+    image: './assets/splash.png',
+    resizeMode: 'cover',
+    backgroundColor: '#ffffff',
+  },
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
 
   },
   android: {
-    // adaptiveIcon: {
-    //   foregroundImage: './src/assets/icon',
-    //   backgroundColor: '#ffffff',
-    // },
+    adaptiveIcon: {
+      foregroundImage: './assets/icon.png',
+      backgroundColor: '#ffffff',
+    },
+    package: "com.box.Boxestimate"
   },
   web: {
-    // favicon: './assets/favicon.png',
+    favicon: './assets/favicon.png',
   },
 };

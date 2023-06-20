@@ -61,7 +61,6 @@ const BottomTabsNavigator = () => {
                 ),
                 headerStyle: {
                     backgroundColor: "#ffff",
-                    height : 120
                 }
             }}
 
