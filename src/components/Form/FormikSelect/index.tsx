@@ -20,6 +20,7 @@ const FormikSelect = ({name, options}:FormikSelectProps) => {
 <View style={{flex : 1, }} >
 <Picker 
     selectedValue={values[name]}
+    mode='dialog'
     placeholder='Select'
     onValueChange={(selected)=> setFieldValue(name , selected)}
     style={{backgroundColor : '#ffffffb5', borderRadius : 8}}

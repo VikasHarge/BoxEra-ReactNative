@@ -38,14 +38,19 @@ const BoxDetailsInput = ({ navigation, route }: NativeStackScreenProps<HomeStack
         scrollViewRef.current?.scrollTo({ x: 0, y: 0, animated: true, });
     };
 
-    const initialValues = {
+    const initialValues : Estimate = {
         ...estimateInitial,
         client_name: client_name as string,
         profit: "15",
         tax: "18",
         wastage: "3",
         conversion_cost: "10",
-        lamination_factor: "0.006"
+        lamination_factor: "0.006",
+        ply_number : 5,
+        top_gsm : "100"
+
+    
+        
     }
 
     const handleSubmit = async (values: Estimate, { setErrors }: FormikHelpers<Estimate>) => {

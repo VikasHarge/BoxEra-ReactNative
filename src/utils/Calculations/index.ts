@@ -59,14 +59,26 @@ export const paperCostPerBox = (box: Estimate) => {
 
     const paperArea = sheetArea(box) || 0;
 
-    const topPaperCost = paperArea * Number(box.top_gsm) * (Number(box.top_paper_rate) / 1000)
-    const midPaperCost = paperArea * Number(box.top_gsm) * (Number(box.mid_paper_rate) / 1000) * (Number(box.mid_ff))
-    const bottomPaperCost = paperArea * Number(box.bottom_gsm) * (Number(box.bottom_paper_rate) / 1000)
+    const topPaperCost = (paperArea * Number(box.top_gsm) * (Number(box.top_paper_rate))/1000)
+    const midPaperCost = (paperArea * Number(box.mid_gsm) * (Number(box.mid_paper_rate))/1000)*(Number(box.mid_ff))
+    const bottomPaperCost = (paperArea * Number(box.bottom_gsm) * (Number(box.bottom_paper_rate)))/1000
     const plyFactor = getPlyFactor(Number(box.ply_number))
-    const totalPaperCost = topPaperCost || 0 + ((midPaperCost || 0 + bottomPaperCost || 0) * plyFactor)
+    console.log(plyFactor);
 
-    return Number(totalPaperCost * 2).toFixed(2)
+    console.log(topPaperCost, midPaperCost, bottomPaperCost);
+    
 
+    const midBottomCost = (midPaperCost+bottomPaperCost)*plyFactor
+    
+    const totalPaperCost = topPaperCost+midBottomCost
+
+    console.log('====================================');
+    console.log(totalPaperCost);
+    console.log('====================================');
+
+
+
+    return Number(totalPaperCost*2).toFixed(2)
 }
 
 export const printingCost = (box: Estimate) => {
