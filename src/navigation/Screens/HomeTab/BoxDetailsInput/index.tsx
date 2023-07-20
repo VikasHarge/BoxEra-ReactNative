@@ -47,10 +47,9 @@ const BoxDetailsInput = ({ navigation, route }: NativeStackScreenProps<HomeStack
         conversion_cost: "10",
         lamination_factor: "0.006",
         ply_number : 5,
-        top_gsm : "100"
-
-    
-        
+        top_gsm : "100",
+        mid_gsm : "100",
+        mid_ff : "1.5",
     }
 
     const handleSubmit = async (values: Estimate, { setErrors }: FormikHelpers<Estimate>) => {

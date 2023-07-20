@@ -63,8 +63,7 @@ export const estimateSchema = Yup.object().shape({
 })
 
 export const laminationOptions : {label : string, value : boolean}[] = [ {label : "No", value : false}, {label : 'Yes', value : true},]
-
-export const colorOptions : {label : string, value : ColorType}[] = [{label : "No Color", value : "no_color"}, {label : "Single Color", value : "single_color"}, {label : "Two Colors", value : 'two_color'}, {label : "Four Colors", value : 'four_color'} ]
+export const isColorOptions : {label : string, value : boolean}[] = [ {label : "No", value : false}, {label : 'Yes', value : true},]
 
 export const plyOptions = [{ label: '3 Ply', value: 3 }, { label: '5 Ply', value: 5 }, { label: '7 Ply', value: 7 }, { label: '9 Ply', value: 9 }]
 
@@ -72,63 +71,48 @@ export const ffOptions = [{ label: '1.5', value: 1.5 }, { label: '1.8', value: 1
 
 export const gsmOptions = [
     {
-        label: "100 N",
+        label: "100",
         value: 100
     },
     {
-        label: "120 N",
+        label: "120",
         value: 120
     },
     {
-        label: "140 N",
+        label: "140",
         value: 140
     },
     {
-        label: "150 N",
+        label: "150",
         value: 150
     },
     {
-        label: "150 B",
-        value: 150
-    },
-    {
-        label: "180 N",
+        label: "180",
         value: 180
     },
     {
-        label: "180 B",
-        value: 180
-    },
-    {
-        label: "200 B",
+        label: "200",
         value: 200
     },
     {
-        label: "230 B",
+        label: "230",
         value: 230
     },
     {
-        label: "230 D",
-        value: 230
-    },
-    {
-        label: "250 B",
+        label: "250",
         value: 250
     },
+
     {
-        label: "250 D",
-        value: 250
-    },
-    {
-        label: "270 D",
+        label: "270",
         value: 270
     },
     {
-        label: "300 D",
+        label: "300",
         value: 300
     },
     {
-        label: "350 D",
+        label: "350",
         value: 350
     },
 

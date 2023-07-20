@@ -1,20 +1,21 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
-import { ColorType, Estimate } from '../../store/types'
+
 import { Formik, FormikHelpers } from 'formik'
-import { colorOptions, estimateSchema, ffOptions, gsmOptions, laminationOptions, plyOptions } from '../../navigation/Screens/HomeTab/BoxDetailsInput/constants'
+import {  estimateSchema, ffOptions, gsmOptions, isColorOptions, laminationOptions, plyOptions } from '../../navigation/Screens/HomeTab/BoxDetailsInput/constants'
 import { Ionicons } from '@expo/vector-icons'
 import { FormikTextInput } from '../Form/TextInput'
 
 import FormikSelect from '../Form/FormikSelect'
 import ColorNotice from '../../navigation/Screens/HomeTab/BoxDetailsInput/components/ColorNotice'
 import EstimateDetails from '../../navigation/Screens/HomeTab/BoxDetailsInput/components/EstimateDetails'
+import { Estimate } from '../../store/types'
 
 export type BoxForm = {
     initialValues: Estimate,
     handleSubmit: (values: Estimate, { setErrors }: FormikHelpers<Estimate>) => Promise<void>
     client_name: string,
-    isEdit : boolean,
+    isEdit: boolean,
 }
 
 const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) => {
@@ -44,7 +45,7 @@ const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) 
                     </View>
 
 
-                    {isEdit ? <Text style={{marginVertical : 15, fontSize : 20, fontWeight : 'bold', borderBottomWidth : 2, borderBottomColor : "#828282", paddingBottom : 10}} >{values.box_name}</Text>  : <FormikTextInput name='box_name' label='Enter Box Name' />}
+                    {isEdit ? <Text style={{ marginVertical: 15, fontSize: 20, fontWeight: 'bold', borderBottomWidth: 2, borderBottomColor: "#828282", paddingBottom: 10 }} >{values.box_name}</Text> : <FormikTextInput name='box_name' label='Enter Box Name' />}
 
                     <View style={{ width: '100%', marginVertical: 10 }} >
                         <Text style={styles.inputHead} >Enter Box Outer Dimentions</Text>
@@ -145,12 +146,21 @@ const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) 
                             <FormikTextInput name='box_quantity' label='Box Quantity' type='phone' />
                         </View>
                         <View style={{ marginBottom: 8 }} >
-                            <Text style={[styles.inputHead, { fontSize: 13 }]} >Color Selection</Text>
+                            {/* <Text style={[styles.inputHead, { fontSize: 13 }]} >Color Cost</Text>
                             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', gap: 10, marginVertical: 10 }} >
                                 <Text style={{ width: '25%' }} >Color Type</Text>
                                 <FormikSelect name='color_type' label='Color Type' options={colorOptions} />
                             </View>
-                            <ColorNotice type={values.color_type as ColorType} />
+                            <ColorNotice type={values.color_type as ColorType} /> */}
+                            <Text style={[styles.inputHead, { fontSize: 13 }]} >Color Selection</Text>
+                            <View style={{ flex: 1, flexDirection: 'row', gap: 20, justifyContent: 'flex-end', alignItems: 'flex-end', marginVertical: 5 }} >
+                                <View style={{ flex: 0.5, flexDirection: 'column', gap: 10, marginVertical: 8 }} >
+                                    <FormikSelect name='is_color' label='Color' options={isColorOptions} />
+                                </View>
+                                <View style={{ flex: 0.5 }} >
+                                    {values.is_color && <FormikTextInput name='color_cost' label='Color Cost' type='phone' />}
+                                </View>
+                            </View>
 
                         </View>
 
@@ -172,7 +182,7 @@ const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) 
                     <View style={{ flex: 1, marginBottom: 35 }} >
                         <Text style={[styles.inputHead, { marginBottom: 8, }]} >Charges</Text>
                         <View style={{ flex: 1, flexDirection: 'row', gap: 25 }} >
-                        <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
+                            <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >
                                 <FormikTextInput name='conversion_cost' label='Coversion Cost / Kg' type='phone' />
                             </View>
                             <View style={{ flex: 1, marginBottom: 5, flexDirection: "row" }} >

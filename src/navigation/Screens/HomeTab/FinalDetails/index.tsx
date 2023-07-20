@@ -33,7 +33,7 @@ const FinalDetails = ({ navigation, route }: NativeStackScreenProps<HomeStackPar
 
   const createDynamicHtml = ()=>{
 
-    const boxCost = getBoxMfgCost(box)
+    const boxCost = getBoxPrice(box)
     const totalCost = (boxCost*Number(box.box_quantity))
     const taxCost = (boxCost*Number(box.box_quantity))*0.18
     const grandTotal = totalCost+taxCost
@@ -210,7 +210,7 @@ const FinalDetails = ({ navigation, route }: NativeStackScreenProps<HomeStackPar
           <div class="party-details">
             <h3>From</h3>
             <div>
-              <h4>Swaminarayan Industries</h4>
+              <h4>Swami Narayan Industries</h4>
               <h5>Bhiwandi, Thane</h5>
               <h5>421302,</h5>
               <h5>9764839434</h5>
@@ -252,13 +252,6 @@ const FinalDetails = ({ navigation, route }: NativeStackScreenProps<HomeStackPar
       <td>
       <h4>${box.ply_number} Ply Box,</h4>
       <h4>Dimentions : ${box.outer_length}"X${box.outer_width}"X${box.outer_width}"</h4>
-      <p>Paper Specifications
-      <ol>
-      <li>Top Paper : ${box.top_bf}/${box.top_gsm}</li>
-      <li>Flute Paper : ${box.mid_bf}/${box.mid_gsm}</li>
-      <li>Bottom Paper : ${box.bottom_bf}/${box.bottom_gsm}</li>
-      </ol>
-      </p>
       </td>
       <td style="text-align: center;" >${box.box_quantity}</td>
       <td style="text-align: center;" >${String(boxCost)}</td>
@@ -285,24 +278,13 @@ const FinalDetails = ({ navigation, route }: NativeStackScreenProps<HomeStackPar
 
      </table>
       </div>
-
-      <div style="display: flex; flex-direction: column; justify-content: space-between;" >
-        <!-- Section 4 -->
-        <div class="section4" style="font-size: 0.6rem">
-          <h2 class="terms-conditions" style="font-size: 0.8rem">
-            Terms and Conditions:
-          </h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p>
-            Nullam auctor interdum ligula. Phasellus convallis dapibus efficitur.
-          </p>
-          <p>
-            Quisque lobortis odio ut augue tristique, eget fermentum ipsum
-            posuere.
-          </p>
-          <p>Donec semper risus vitae lacus commodo, in pretium risus posuere.</p>
-        </div>
+      <div style="position : fixed; bottom : 2rem; right : 1rem ;" >
+      <div style="display : flex;     flex-direction: column;" >
+      <h3 style="font-size: 0.6rem; text-align: center" >Signature / stamp</h3>
+      <h3 style="font-size: 0.8rem" >Swami Narayan Industries</h3>
       </div>
+      </div>
+
     </div>
       </body>
     </html>

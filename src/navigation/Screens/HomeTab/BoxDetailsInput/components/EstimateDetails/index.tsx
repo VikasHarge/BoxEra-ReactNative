@@ -4,7 +4,7 @@ import { Estimate } from '../../../../../../store/types'
 import { styles } from '../..'
 import EstimateTab from './Components/EstimateTab'
 import { useFormikContext } from 'formik'
-import { boxWeight, conversionCost, cuttingHeight, cuttingLength, getBoxMfgCost, getBoxPrice, getProfit, laminationCost, paperCostPerBox, printingCost, sheetArea, totalGsm } from '../../../../../../utils/Calculations'
+import { boxWeight, conversionCost, cuttingHeight, cuttingLength, getBoxMfgCost, getBoxPrice, getProfit, laminationCost, paperCostPerBox, printingCost, printingCostPerBox, sheetArea, totalGsm } from '../../../../../../utils/Calculations'
 
 
 export type EstimateDetailsProps = {
@@ -15,11 +15,6 @@ export type EstimateDetailsProps = {
 
 
 const EstimateDetails = ({ values }: EstimateDetailsProps) => {
-
-
-
-
-
 
     return (
         <View style={{ flex: 1, backgroundColor: '#ffff', padding: 10, borderRadius: 6, gap: 10, marginBottom: 15 }} >
@@ -62,17 +57,17 @@ const EstimateDetails = ({ values }: EstimateDetailsProps) => {
             </View>
             <View style={{ flex: 1, flexDirection: 'row', gap: 15 }} >
 
-                <EstimateTab label='Printing Cost ₹' >
-                    {printingCost(values) || "00.00"}
+                <EstimateTab label='Color Print Cost(₹)/box' >
+                    {printingCostPerBox(values) || "00.00"}
                 </EstimateTab>
 
-                <EstimateTab label='Lamination Cost/box' >
+                <EstimateTab label='Lamination Cost(₹)/box' >
                     {laminationCost(values) || "00.00"}
                 </EstimateTab>
             </View>
             <View style={{ flex: 1, flexDirection: 'row', gap: 15 }} >
 
-                <EstimateTab label='Conversion Cost/box' >
+                <EstimateTab label='Conversion Cost(₹)/box' >
                     {conversionCost(values) || "00.00"}
                 </EstimateTab>
 

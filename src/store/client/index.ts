@@ -33,9 +33,6 @@ export const loadClientsFromLocalStorage: () => Promise<
   return new Promise<ClientObject[]>((resolve, reject) => {
     AsyncStorage.getItem('clients')
       .then((res) => {
-        console.log('====================================');
-        console.log(res);
-        console.log('====================================');
         return resolve(
           (JSON.parse(res || '[]') as ClientObject[]) || ([] as ClientObject[]),
         );

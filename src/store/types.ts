@@ -1,4 +1,4 @@
-export type ColorType = "no_color" | "single_color" | "two_color" | "four_color"
+
 
 export type Estimate = {
     client_name : string,
@@ -17,8 +17,9 @@ export type Estimate = {
     bottom_bf? : string,
     bottom_gsm? : string,
     bottom_paper_rate?:string,
-    color_type? : ColorType,
     is_lamination?: boolean,
+    is_color?: boolean,
+    color_cost?: number,
     box_quantity?: string,
     transportation_charge?: string,
     profit?: string,

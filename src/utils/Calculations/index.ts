@@ -63,43 +63,18 @@ export const paperCostPerBox = (box: Estimate) => {
     const midPaperCost = (paperArea * Number(box.mid_gsm) * (Number(box.mid_paper_rate))/1000)*(Number(box.mid_ff))
     const bottomPaperCost = (paperArea * Number(box.bottom_gsm) * (Number(box.bottom_paper_rate)))/1000
     const plyFactor = getPlyFactor(Number(box.ply_number))
-    console.log(plyFactor);
-
-    console.log(topPaperCost, midPaperCost, bottomPaperCost);
     
 
     const midBottomCost = (midPaperCost+bottomPaperCost)*plyFactor
     
     const totalPaperCost = topPaperCost+midBottomCost
 
-    console.log('====================================');
-    console.log(totalPaperCost);
-    console.log('====================================');
-
-
-
     return Number(totalPaperCost*2).toFixed(2)
 }
 
-export const printingCost = (box: Estimate) => {
-    switch (box.color_type) {
-        case 'single_color': if (Number(box.box_quantity) < 500) {
-            return 700
-        } else {
-            return (Number(box.box_quantity) * 1.4)
-        };
-        case 'two_color': if (Number(box.box_quantity) < 500) {
-            return 1400
-        } else {
-            return (Number(box.box_quantity) * 2.8)
-        };
-        case 'four_color': if (Number(box.box_quantity) < 500) {
-            return 5000
-        } else {
-            return (Number(box.box_quantity) * 5)
-        };
-        case 'no_color': 0;
-        default: 0
+export const printingCostPerBox = (box: Estimate) => {
+    if(box.is_color && box.color_cost && Number(box.box_quantity)> 0){
+        return Number(Number(box.color_cost)/Number(box.box_quantity)).toFixed(2)
     }
     return 0
 
@@ -127,7 +102,7 @@ export const conversionCost = (box: Estimate) => {
 }
 
 export const getBoxMfgCost = (box: Estimate) => {
-    const printigCostPerBox = Number(printingCost(box)) / Number(box.box_quantity) | 0
+    const printigCostPerBox = Number(printingCostPerBox(box)) || 0
     const convCost = Number(conversionCost(box))
     const lamnsnCost = Number(laminationCost(box))
     const paperCost = Number(paperCostPerBox(box))
@@ -139,9 +114,7 @@ export const getBoxMfgCost = (box: Estimate) => {
 
 export const getProfit = (box : Estimate)=>{
     const totalMfgCost = Number(getBoxMfgCost(box) || 0);
-
     const profitValue = (totalMfgCost*Number(box.profit))/100
-
     return profitValue
 }
 
