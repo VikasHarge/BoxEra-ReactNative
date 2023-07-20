@@ -8,7 +8,6 @@ export default {
   slug: 'box-calculator',
   version: '1.0.0',
   extra: {
-    // pageBaseUrl: process.env.ACUBALL_BASE_URL,
     eas: {
       projectId: "4664018b-88df-40f6-a63b-b8dc3204bc6d",
     },
@@ -17,10 +16,10 @@ export default {
   ],
   scheme: 'boxcalculator',
   orientation: 'default',
-  icon: './assets/icon.png',
+  icon: './assets/images/icon.png',
   userInterfaceStyle: 'light',
   splash: {
-    image: './assets/splash.png',
+    image: './assets/images/splash.png',
     resizeMode: 'cover',
     backgroundColor: '#ffffff',
   },
@@ -31,12 +30,12 @@ export default {
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: './assets/icon.png',
+      foregroundImage: './assets/images/icon.png',
       backgroundColor: '#ffffff',
     },
     package: "com.box.Boxestimate"
   },
   web: {
-    favicon: './assets/favicon.png',
+    favicon: './assets/images/favicon.png',
   },
 };

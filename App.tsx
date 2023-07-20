@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import BottomTabsNavigator from './src/navigation/BottomTabsNavigator';
 import useCachedResources from './src/hooks/useCachedResources.tsx';
+import * as SplashScreen from 'expo-splash-screen'
 
 
 
@@ -17,6 +18,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   const { isLoadingComplete, store } = useCachedResources()
+  SplashScreen.preventAutoHideAsync();
+  setTimeout(SplashScreen.hideAsync, 2000)
 
 
   return isLoadingComplete && store ? (
