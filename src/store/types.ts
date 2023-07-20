@@ -19,7 +19,8 @@ export type Estimate = {
     bottom_paper_rate?:string,
     is_lamination?: boolean,
     is_color?: boolean,
-    color_cost?: number,
+    color_cost?: string,
+    lamination_factor?: string,
     box_quantity?: string,
     transportation_charge?: string,
     profit?: string,
@@ -28,7 +29,7 @@ export type Estimate = {
     price_per_box? : string,
     cost_per_box?: string,
     conversion_cost?: string,
-    lamination_factor?: string,
+
 }
 
 export type ClientObject = {

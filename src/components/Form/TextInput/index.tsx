@@ -21,8 +21,6 @@ const FormikTextInput: React.FC<FormikTextInputProps> = ({ label, name, type }) 
         }).start();
     };
 
-    // console.log(errors);
-    
 
     const handleBlurInput = () => {
         if (!values[name]) {

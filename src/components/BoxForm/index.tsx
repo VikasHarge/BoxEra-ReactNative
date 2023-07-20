@@ -146,12 +146,6 @@ const BoxForm = ({ handleSubmit, initialValues, client_name, isEdit }: BoxForm) 
                             <FormikTextInput name='box_quantity' label='Box Quantity' type='phone' />
                         </View>
                         <View style={{ marginBottom: 8 }} >
-                            {/* <Text style={[styles.inputHead, { fontSize: 13 }]} >Color Cost</Text>
-                            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', gap: 10, marginVertical: 10 }} >
-                                <Text style={{ width: '25%' }} >Color Type</Text>
-                                <FormikSelect name='color_type' label='Color Type' options={colorOptions} />
-                            </View>
-                            <ColorNotice type={values.color_type as ColorType} /> */}
                             <Text style={[styles.inputHead, { fontSize: 13 }]} >Color Selection</Text>
                             <View style={{ flex: 1, flexDirection: 'row', gap: 20, justifyContent: 'flex-end', alignItems: 'flex-end', marginVertical: 5 }} >
                                 <View style={{ flex: 0.5, flexDirection: 'column', gap: 10, marginVertical: 8 }} >

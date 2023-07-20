@@ -26,6 +26,7 @@ export default {
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
+    bundleIdentifier : "host.exp.expo"
 
   },
   android: {

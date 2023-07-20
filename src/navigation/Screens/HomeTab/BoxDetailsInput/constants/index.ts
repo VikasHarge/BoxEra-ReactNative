@@ -15,8 +15,9 @@ export const estimateInitial: Estimate = {
     mid_gsm: undefined,
     top_bf: undefined,
     top_gsm: undefined,
-    color_type: undefined,
     is_lamination: undefined,
+    is_color:undefined,
+    color_cost:undefined,
     box_quantity: undefined,
     profit: undefined,
     tax:undefined,
@@ -45,8 +46,8 @@ export const estimateSchema = Yup.object().shape({
     mid_gsm: Yup.string().required("required"),
     top_bf: Yup.string().required("required"),
     top_gsm: Yup.string().required("required"),
-    color_type: Yup.string().required("required"),
     is_lamination: Yup.boolean().required("required"),
+    is_color: Yup.boolean().required("required"),
     box_quantity: Yup.string().required("required"),
     profit: Yup.string().required("required"),
     tax:Yup.string().required("required"),
@@ -56,8 +57,11 @@ export const estimateSchema = Yup.object().shape({
     top_paper_rate : Yup.string().required("required"),
     mid_paper_rate : Yup.string().required("required"),
     conversion_cost : Yup.string().required("required"),
-    lamination_factor: Yup.string().when("lamination_type", ([lamination_type], schema)=>{
-        return lamination_type === true ? schema.required("Required") : schema.optional()
+    lamination_factor: Yup.string().when("is_lamination", ([is_lamination], schema)=>{
+        return is_lamination === true ? schema.required("required") : schema.optional()
+    }),
+    color_cost : Yup.string().when("is_color", ([is_color], schema)=>{
+        return is_color === true ? schema.required("required") : schema.optional()
     })
 
 })

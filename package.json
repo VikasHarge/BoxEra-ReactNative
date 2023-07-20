@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "if exist android\\app\\build (rd /s /q android\\app\\build) && if exist ios\\build (rd /s /q ios\\build)",
     "start": "expo start",
+    "build": "eas build --profile preview",
     "android": "expo run:android",
     "build:android": "expo run:android --variant release",
     "build:ios": "expo run:ios --configuration Release",
@@ -28,7 +29,7 @@
     "expo": "~48.0.18",
     "expo-print": "~12.2.1",
     "expo-sharing": "~11.2.2",
-    "expo-splash-screen": "^0.20.4",
+    "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
     "formik": "^2.4.1",
     "nativewind": "^2.0.11",
