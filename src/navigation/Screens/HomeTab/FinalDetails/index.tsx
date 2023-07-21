@@ -251,7 +251,7 @@ const FinalDetails = ({ navigation, route }: NativeStackScreenProps<HomeStackPar
       </td>
       <td>
       <h4>${box.ply_number} Ply Box,</h4>
-      <h4>Dimentions : ${box.outer_length}"X${box.outer_width}"X${box.outer_width}"</h4>
+      <h4>Dimentions : ${box.outer_length}"X${box.outer_width}"X${box.outer_height}"</h4>
       </td>
       <td style="text-align: center;" >${box.box_quantity}</td>
       <td style="text-align: center;" >${String(boxCost)}</td>
