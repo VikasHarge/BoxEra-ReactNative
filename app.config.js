@@ -31,7 +31,7 @@ export default {
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: './assets/images/icon.png',
+      foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
     package: "com.box.Boxestimate"
